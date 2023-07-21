@@ -1,0 +1,12 @@
+---
+import {KPApiClient} from "../apiClient";
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Menu from "../Components/Menu/Menu";
+// const { docs, page, pages, total, limit } = await KPApiClient.getFilmsList()
+---
+<!--<BaseLayout title="Cinemazone" content="">-->
+<!--    {docs.map((doc) => {-->
+<!--        return doc.name-->
+<!--    })}-->
+<!--</BaseLayout>-->
+<Menu client:load />

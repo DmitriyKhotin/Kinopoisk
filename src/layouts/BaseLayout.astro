@@ -1,0 +1,42 @@
+---
+interface Props {
+    title: string;
+    content: string;
+}
+
+const { title, description, keywords } = Astro.props
+---
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<html lang="en">
+    <head>
+        <title>{title}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content={description}>
+        <meta name="keywords" content={keywords}>
+        <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+        <link rel="icon" href="/icon-svg.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+        <link rel="manifest" href="/manifest.webmanifest">
+    </head>
+    <body>
+        <section class="bg-midnight h-screen flex">
+            <aside>
+                <!--<Sidebar />-->
+            </aside>
+            <section>
+                <header>
+                    <h1 class="font-mono text-2xl font-medium text-white">My cinema</h1>
+                </header>
+                <main>
+                    <slot /> <!-- your content is injected here -->
+                </main>
+            </section>
+        </section>
+    </body>
+</html>
