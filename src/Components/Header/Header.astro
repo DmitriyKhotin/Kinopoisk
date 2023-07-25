@@ -1,0 +1,12 @@
+---
+import CinemaLogo from './CinemaLogo.svg'
+import Menu from "../Menu/Menu";
+import SearchInput from "../SearchInput/SearchInput";
+---
+<header class="flex items-center justify-between bg-midnight w-full top-0 sticky h-[108px] px-[84px]">
+    <Menu client:load/>
+    <a href="/">
+        <img src={CinemaLogo} alt="CINEMALOGO" />
+    </a>
+    <SearchInput />
+</header>

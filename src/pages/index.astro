@@ -1,12 +1,14 @@
 ---
 import {KPApiClient} from "../apiClient";
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Menu from "../Components/Menu/Menu";
-// const { docs, page, pages, total, limit } = await KPApiClient.getFilmsList()
+import Pagination from "../Components/Pagination/Pagination.astro";
+import Movie from "../Components/Movie/Movie.astro";
+const { docs, page, pages, total, limit } = await KPApiClient.getFilmsList()
+console.log(docs.map(doc => doc.id))
 ---
-<!--<BaseLayout title="Cinemazone" content="">-->
-<!--    {docs.map((doc) => {-->
-<!--        return doc.name-->
-<!--    })}-->
-<!--</BaseLayout>-->
-<Menu client:load />
+<BaseLayout title="Cinemazone" content="">
+    {docs.map((doc) => {
+        return <Movie doc={doc} index={doc.id} />
+    })}
+    <Pagination page={page} pages={pages} total={total} limit={limit}/>
+</BaseLayout>

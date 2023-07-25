@@ -27,8 +27,8 @@ const getRotation = (progress: number): number => {
 
 const getComputedStyles = (progress: number, result: number) => {
     return {
-        transform: `translate(${progress * 100}px, ${-result*20}px) rotate(${getRotation(progress)}deg)`,
-        opacity: progress < 0.85 ? progress : 0
+        transform: `translate(${progress * 100}px, ${-result*10}px) rotate(${getRotation(progress)}deg)`,
+        opacity: progress > 0.1 && progress < 0.85  ? progress : 0
     }
 }
 
@@ -42,13 +42,13 @@ const Menu = () => {
     const handleOpenMenu = useCallback(() => {
         setOpen((prevState) => !prevState)
         if (!isOpen) {
-            animate({timing: menuAnimationMathFunction, getX: setProgress, getY: setResult, duration: 1000})
+            animate({timing: menuAnimationMathFunction, getX: setProgress, getY: setResult, duration: 800})
         }
     }, [setOpen, isOpen, setProgress, setResult])
 
     return (
-        <div class={styles.menu}>
-            <button id={burgerStyles["burger"]} class={isOpen ? burgerStyles.open : ''} onClick={handleOpenMenu}>
+        <div class={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
+            <button id={burgerStyles["burger"]} class={isOpen ? burgerStyles.open : ''} onClick={handleOpenMenu} tabIndex={0}>
                 <span />
                 <span />
                 <span />

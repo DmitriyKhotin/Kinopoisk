@@ -24,7 +24,7 @@ class KPApiClientClass {
     */
     async getFilmsList(): Promise<MovieDocsResponseDtoV13> {
         const query: Filter<MovieFields> = {
-            selectFields: ['id', 'name', 'rating', 'poster', 'year', 'description', 'movieLength'],
+            selectFields: ['id', 'name', 'rating', 'poster', 'year', 'description', 'movieLength', 'logo', 'shortDescription'],
             // year: '2020-2023',
             // 'rating.kp': '7.5-10',
             // 'poster.url': '!null',

@@ -1,0 +1,25 @@
+---
+import {MovieDtoV13} from "@openmoviedb/kinopoiskdev_client";
+interface Props extends MovieDtoV13 {}
+const { doc: {id, name, year, poster, logo, rating, description, shortDescription, movieLength} } = Astro.props
+---
+<div class="flex h-[100px] w-[470px] items-center justify-between">
+    <a href={`/films/${id}`}>
+        <img class="h-[100px] w-[100px] rounded mr-[40px]" src={poster.previewUrl} alt={name}/>
+    </a>
+    <div>
+        <h3>
+            {name}
+        </h3>
+        <ol>
+            <li>{movieLength}</li>
+            <li>{year}</li>
+            <li>{rating.kp}</li>
+        </ol>
+        <span>
+            {shortDescription}
+        </span>
+    </div>
+</div>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+

@@ -3,11 +3,10 @@
     width: 20px;
     height: 20px;
     top: -33px;
-    margin: 0 auto;
     background: #d3531a;
     border-radius: 20px;
     transform: rotate(-90deg);
-    left: 60px
+    left: 80px
 }
 
 .drop:before {

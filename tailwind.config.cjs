@@ -6,7 +6,8 @@ module.exports = {
 			colors: {
 				// Configure your color palette here
 				'midnight': '#1D2024',
-				'orange': '#F37515'
+				'orange': '#F37515',
+				'asphalt': '#DEDEDE',
 			}
 		},
 	},
