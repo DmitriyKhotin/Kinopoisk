@@ -1,23 +1,37 @@
 ---
 import {MovieDtoV13} from "@openmoviedb/kinopoiskdev_client";
 interface Props extends MovieDtoV13 {}
-const { doc: {id, name, year, poster, logo, rating, description, shortDescription, movieLength} } = Astro.props
+const { doc: {id, name, year, poster, rating, persons, movieLength} } = Astro.props
+const liStyles = "before:inline-block before:translate-y-[-2px] before:content-[''] before:h-[6px] before:w-[6px] before:rounded-full before:bg-orange before:mx-[10px]"
 ---
+<style>
+    h2 {
+        color: #262626;
+    }
+
+    li > span {
+        color: rgba(38, 38, 38, 0.80);
+    }
+
+    div span {
+        color: rgba(38, 38, 38, 0.60);
+    }
+</style>
 <div class="flex h-[100px] w-[470px] items-center justify-between">
     <a href={`/films/${id}`}>
-        <img class="h-[100px] w-[100px] rounded mr-[40px]" src={poster.previewUrl} alt={name}/>
+        <img class="h-[100px] rounded mr-[40px]" src={poster.previewUrl} alt={name}/>
     </a>
-    <div>
-        <h3>
+    <div class="h-full w-full flex flex-col justify-between">
+        <h2 class="text-lg co">
             {name}
-        </h3>
-        <ol>
-            <li>{movieLength}</li>
-            <li>{year}</li>
-            <li>{rating.kp}</li>
+        </h2>
+        <ol class="flex text-base">
+            <li><span>{movieLength}</span></li>
+            <li><span class={liStyles}>{year}</span></li>
+            <li><span class={liStyles}>{rating.kp}</span></li>
         </ol>
-        <span>
-            {shortDescription}
+        <span class="overflow-hidden text-sm h-[20px]">
+            {persons.slice(0, 3).map((person, index) => person.name + (persons.length - index > 1 ? ' | ' : ''))}
         </span>
     </div>
 </div>

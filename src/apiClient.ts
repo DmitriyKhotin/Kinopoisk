@@ -24,7 +24,7 @@ class KPApiClientClass {
     */
     async getFilmsList(): Promise<MovieDocsResponseDtoV13> {
         const query: Filter<MovieFields> = {
-            selectFields: ['id', 'name', 'rating', 'poster', 'year', 'description', 'movieLength', 'logo', 'shortDescription'],
+            selectFields: ['id', 'name', 'rating', 'poster', 'year', 'description', 'movieLength', 'logo', 'shortDescription', 'persons'],
             // year: '2020-2023',
             // 'rating.kp': '7.5-10',
             // 'poster.url': '!null',
@@ -36,7 +36,6 @@ class KPApiClientClass {
 
         const { data, error, message } = await this.kp.movie.getByFilters(query);
 
-        console.log(data, error, message);
         return data;
     };
 
@@ -47,7 +46,6 @@ class KPApiClientClass {
     async getFilmById(id: number): Promise<MovieDtoV13> {
         const { data, error, message } = await this.kp.movie.getById(id);
 
-        console.log(data, error, message);
         return data;
     };
 
@@ -67,7 +65,6 @@ class KPApiClientClass {
         };
         const { data, error, message } = await this.kp.season.getByFilters(query)
 
-        console.log(data, error, message);
         return data;
     };
 
@@ -78,7 +75,6 @@ class KPApiClientClass {
         const query: Record<string, string> = {};
         const { data, error, message } = await this.kp.image.getByFilters(query);
 
-        console.log(data, error, message);
         return data;
     };
 }
