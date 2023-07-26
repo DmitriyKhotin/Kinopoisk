@@ -1,6 +1,6 @@
 ---
-import {MovieDtoV13} from "@openmoviedb/kinopoiskdev_client";
-interface Props extends MovieDtoV13 {}
+import types from "@openmoviedb/kinopoiskdev_client";
+interface Props extends types.MovieDtoV13 {}
 const { doc: {id, name, year, poster, rating, persons, movieLength} } = Astro.props
 const liStyles = "before:inline-block before:translate-y-[-2px] before:content-[''] before:h-[6px] before:w-[6px] before:rounded-full before:bg-orange before:mx-[10px]"
 ---
